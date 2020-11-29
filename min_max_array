@@ -1,0 +1,25 @@
+object Test extends App {
+  
+  def minAndMax(arr: List[Int]): Option[(Int, Int)] = {
+    val result = if(arr.isEmpty){
+      None
+    } else{
+      var min = arr(0)
+      var max = arr(0)
+      for(element <- arr){
+        if(element < min){
+          min = element
+        }
+        if(element > max){
+          max = element
+        }
+      }
+      Some((min, max))
+    }
+    result
+  }
+  
+  val input = List(7,5,1,2,3,4,5,9)
+  val output = minAndMax(input)
+  println(output)
+}
