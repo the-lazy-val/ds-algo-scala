@@ -1,3 +1,4 @@
+//Count the number of 0,1,2 and fill-up the array
 object Test extends App {
   
   def sort012(arr: Array[Int], len: Int): Array[Int] = {
@@ -26,6 +27,46 @@ object Test extends App {
     })
     
     result
+  }
+  
+  val input = Array(2,1,0,1,0,2,1,2,0,1)
+  val output = sort012(input, 10)
+  output.map(println)
+}
+
+
+//Use 3 pointers: start, mid, end... and swap elements to achieve ordering
+object Test extends App {
+  
+  def swap(arr: Array[Int], firstIndex: Int, secondIndex: Int) = {
+    var temp = arr(firstIndex)
+    arr(firstIndex) = arr(secondIndex)
+    arr(secondIndex) = temp
+    arr
+  }
+  
+  def sort012(input: Array[Int], len: Int): Array[Int] = {
+    var start = 0
+    var mid = 0
+    var end = len-1
+    var arr = input
+    
+    while(mid <= end){
+      if(arr(mid) == 0){
+        arr = swap(arr, mid, start)
+        mid += 1
+        start += 1
+      }
+      if(arr(mid) == 1){
+        mid += 1
+      }
+      if(arr(mid) == 2){
+        arr = swap(arr, mid, end)
+        end -= 1
+      }
+    }
+    
+    arr
   }
   
   val input = Array(2,1,0,1,0,2,1,2,0,1)
