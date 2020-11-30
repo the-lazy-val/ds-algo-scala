@@ -1,0 +1,21 @@
+object Test extends App {
+  
+  def kthSmallest(arr: List[Int], k: Int): Int = {
+  
+    //min-heap
+    //for max-heap (kthLargest) remove Ordering[Int].reverse
+    var priorityQueue = scala.collection.mutable.PriorityQueue[Int](arr:_*)(Ordering[Int].reverse)
+    var result = 0
+    
+    // for(elem <- arr){
+    //   priorityQueue.enqueue(elem)
+    // }
+    
+    (1 to k).map(_ => result = priorityQueue.dequeue())
+    result
+  }
+  
+  val input = List(7,6,1,2,3,4,5)
+  val output = kthSmallest(input, 2)
+  println(output)
+}
