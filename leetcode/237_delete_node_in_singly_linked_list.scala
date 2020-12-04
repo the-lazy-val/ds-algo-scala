@@ -23,3 +23,12 @@ object Solution {
         getNext(node)
     }
 }
+
+//The above solution can be simplified to:
+object Solution {
+    
+    def deleteNode(node: ListNode): Unit = {
+        node.x = node.next.x
+        node.next = node.next.next //These 2 lines are effectively the same as doing the above recursion in scala
+    }
+}
