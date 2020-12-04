@@ -12,3 +12,10 @@ object Solution {
         hashSet.head
     }
 }
+
+//Alternate solution (not much time improvement)
+object Solution {
+    def singleNumber(nums: Array[Int]): Int = {
+        nums.reduce(_ ^ _)
+    }
+}
