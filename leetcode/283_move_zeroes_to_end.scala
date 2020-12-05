@@ -16,3 +16,23 @@ object Solution {
         }
     }
 }
+
+//Alternate solution: calculate the number of shifts 
+object Solution {
+    def moveZeroes(nums: Array[Int]): Unit = {
+        
+        var zeroCount = 0
+        //count of zero is amount character is shifted to left
+        //from first zero position traverse array left
+        for(a <- 0 to nums.size-1){   
+            //count zeroes and shift when not zero
+            if(nums(a) == 0){
+                zeroCount = zeroCount + 1
+            }else if(zeroCount>0){
+                //shift left if not 0 by zeroCount
+                nums(a-zeroCount) = nums(a)
+                nums(a) = 0
+            }
+        }
+    }
+}
