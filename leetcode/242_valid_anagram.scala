@@ -25,3 +25,33 @@ object Solution {
         }
     }
 }
+
+//Time complexity O(n)
+object Solution {
+    def isAnagram(s: String, t: String): Boolean = {
+        var arr1 = s.toArray
+        var arr2 = t.toArray
+        
+        if(arr1.size != arr2.size){
+            false
+        } else{
+            var map = scala.collection.mutable.Map.empty[Char, Int]
+            for(elem <- arr1){
+                map.get(elem) match{
+                    case Some(count) => map += (elem -> (count+1))
+                    case None => map += (elem -> 1)
+                }
+            }
+            
+            for(elem <- arr2){
+                map.get(elem) match{
+                    case Some(count) if count == 1 => map.remove(elem)
+                    case Some(count) => map += (elem -> (count-1))
+                    case None => ()
+                }
+            }
+            
+            if(map.keys.isEmpty) true else false
+        }
+    }
+}
