@@ -30,3 +30,12 @@ object Solution {
         if(maxProfit == 0) profitNow else maxProfit + profitNow
     }
 }
+
+//Alternate solution
+object Solution {
+    def maxProfit(prices: Array[Int]): Int = {
+        prices
+            .foldLeft(0,Int.MaxValue)((t, current) => (t._1 + 0.max(current-t._2), current))
+            ._1
+    }
+}
