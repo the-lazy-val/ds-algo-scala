@@ -17,7 +17,6 @@ object Solution {
             if(buyPrice < sellPrice && sellPrice >= maxSell){
                 maxSell = sellPrice
                 profitNow = sellPrice - buyPrice
-                println("profitNow = "+profitNow)
                 sell += 1
             }else{
                 maxProfit += profitNow
