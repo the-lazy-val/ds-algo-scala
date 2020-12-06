@@ -49,3 +49,26 @@ object Solution {
         sum
     }
 }
+
+
+//Alternate SCALA solution
+object Solution {
+	def convert(c: Char) = c match{
+		case 'I' => 1
+		case 'V' => 5
+		case 'X' => 10
+		case 'L' => 50
+		case 'C' => 100
+		case 'D' => 500
+		case 'M' => 1000
+		case _ => throw new UnsupportedOperationException("This case should not be called unless the input is invalid")
+	}
+
+	def romanToInt(s: String): Int = s.foldRight(0){
+		(v, sum) => (convert(v), sum) match{
+			case (add, _) if sum < 5*add => add + sum
+			case (sub, _) => sum - sub
+		}
+	}
+	
+}
