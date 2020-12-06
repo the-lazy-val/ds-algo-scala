@@ -12,3 +12,10 @@ object Solution {
         sheetNumber
     }
 }
+
+
+//Alternate solution
+object Solution {
+    def titleToNumber(s: String): Int = 
+        s.foldLeft(0)((acc, ch) => acc * 26 + (ch - 'A' + 1))
+}
