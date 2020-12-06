@@ -55,3 +55,30 @@ object Solution {
         }
     }
 }
+
+//One more: O(N)
+object Solution {
+    def isAnagram(s: String, t: String): Boolean = {
+        if(s.size != t.size){
+            false
+        }else{
+        var arr = Array.fill(26)(0)
+        for(elem <- s){
+            arr(elem - 'a') += 1
+        }
+        
+        import scala.util.control.Breaks._
+        var flag = true
+        breakable{
+        for(elem <- t){
+            arr(elem - 'a') -= 1
+            if(arr(elem - 'a') < 0){
+                flag = false
+                break
+            }
+        }
+        }
+        flag
+    }
+    }
+}
