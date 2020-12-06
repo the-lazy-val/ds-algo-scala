@@ -18,3 +18,9 @@ object Solution {
     }
     
   
+//Alternate (SCALA) solution
+object Solution {
+    def containsDuplicate(nums: Array[Int]): Boolean = {
+        return nums.distinctBy(_.self).length != nums.length
+    }
+}
