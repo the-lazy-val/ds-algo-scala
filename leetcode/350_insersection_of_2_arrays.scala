@@ -14,3 +14,6 @@ object Solution {
         }).toArray.flatten
     }
 }
+
+
+//Alternate solution to keep count in HashMap from 1st array & decrease from second array... whatever is left is intersection
