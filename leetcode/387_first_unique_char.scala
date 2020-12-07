@@ -10,3 +10,12 @@ object Solution {
         map.toList.filter(x => x._2._2 == 1).map(_._2._1).sorted.headOption.getOrElse(-1)
     }
 }
+
+//Alternate/Better SCALA solution
+object Solution {
+    def firstUniqChar(s: String): Int = {
+        val hmap =  s.toCharArray.groupBy(identity).mapValues(_.length)
+        val uniqChar = s.toCharArray.zipWithIndex.find (p => hmap(p._1) == 1)
+        if(uniqChar.nonEmpty) uniqChar.get._2 else -1 
+    }
+}
