@@ -8,3 +8,17 @@ object Solution {
         idealSum - arraySum
     }
 }
+
+//Removing foldLeft improved time
+object Solution {
+    def missingNumber(nums: Array[Int]): Int = {
+        val size = nums.size
+        var idealSum = (size * (size + 1))/2
+        
+        for(num <- nums){
+            idealSum -= num
+        }
+
+        idealSum
+    }
+}
