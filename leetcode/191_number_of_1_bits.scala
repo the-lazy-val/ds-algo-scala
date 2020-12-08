@@ -18,6 +18,7 @@ def hammingWeight(n: Int): Int = {
 }
 
 //Alternate (need to understand whats happening here) AND of num, num-1
+// num & num-1 returns the last SET bit
 def hammingWeight(n: Int): Int = {
         println(n)
         var sum = 0
