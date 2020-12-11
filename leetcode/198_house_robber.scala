@@ -36,3 +36,23 @@ object Solution {
         }
     }
 }
+
+//Another way to do the same
+object Solution {
+    def rob(nums: Array[Int]): Int = {
+        if(nums.isEmpty){
+            0
+        }else{
+            var rob = nums(0)
+            var no_rob = 0
+            var prev = rob
+            for(i <- 1 until nums.length){
+                prev = rob
+                rob = no_rob + nums(i)
+                no_rob = Math.max(prev, no_rob)
+                
+            }
+            Math.max(no_rob, rob)
+        }
+    }
+}
