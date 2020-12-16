@@ -9,3 +9,15 @@ object Solution {
         
     }
 }
+
+//Alternate solution
+object Solution {
+    def isPowerOfThree(n: Int): Boolean = {
+        n match{
+            case z if z<=0 => false
+            case 1 => true
+            case z if z%3!=0 => false
+            case z => isPowerOfThree(n/3)
+        }
+    }
+}
