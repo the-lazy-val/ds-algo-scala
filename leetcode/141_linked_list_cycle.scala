@@ -32,3 +32,31 @@ object Solution {
         }
     }
 }
+
+//Alternate solution: Slow & Fast pointer
+object Solution {
+    def hasCycle(head: ListNode): Boolean = {
+        
+        if(head == null){
+            false
+        }else{
+        
+        var slow = head
+        var fast = head.next
+        var output = true
+        
+        import scala.util.control.Breaks._
+        breakable{
+            while(slow != fast){
+                if(fast == null || fast.next == null){
+                    output=false
+                    break
+                }
+                slow = slow.next
+                fast = fast.next.next
+            }
+        }
+        output
+    }
+    }
+}
