@@ -31,3 +31,31 @@ object Solution {
         }
     }
 }
+
+//Better solution: in the above solution we are only decreasing the range on 1 side by half, but other side by only 1 number
+//This solution decreases by half for both side (binary search pattern)
+
+object Solution {
+    def mySqrt(x: Int): Int = {
+        if(x == 0){
+            0
+        }else if(x == 1){
+            1
+        }else{
+            var start = 1
+            var end = x
+            var result = 0
+            
+            while(start <= end){
+                var mid = start + (end - start)/2
+                if(mid <= x/mid){
+                    result = mid
+                    start = mid+1
+                }else{
+                    end = mid-1
+                }
+            }
+            result
+        }
+    }
+}
