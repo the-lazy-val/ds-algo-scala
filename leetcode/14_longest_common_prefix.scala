@@ -28,3 +28,24 @@ object Solution {
         }
     }
 }
+
+//Alternate solution (better complexity)
+object Solution {
+    def longestCommonPrefix(strs: Array[String]): String = {
+        if(strs.isEmpty){
+            ""
+        }else{
+            var prefix = strs(0)
+            
+            (1 until strs.length).map(i => {
+                
+                while(strs(i).indexOf(prefix) != 0){
+                    prefix = prefix.substring(0, prefix.length - 1)
+                }
+                
+            })
+            
+            prefix
+        }
+    }
+}
