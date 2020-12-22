@@ -8,6 +8,12 @@ object Solution {
             nums(b) = temp
         }
         
+        /**
+        In backtracking, we collect all the leaf nodes of the tree
+        In this question, we fix the first letter and swap the others till we reach (l==r), i.e. no swap needed since its the leaf node
+        So we add it to output
+        */
+        
         if(l == r){
             output = output :+ nums.toList
         }else{
