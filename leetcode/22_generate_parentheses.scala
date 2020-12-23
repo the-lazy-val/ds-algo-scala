@@ -74,3 +74,28 @@ object Solution {
         output.toList
     }
 }
+
+
+/**
+In the above approach, what we are basically doing is getting all possible combinations and then filtering the ones that are balanced.
+that is kinda brute force actually
+In the below approach (also backtracking), we apply constraints, during forming the string itself
+*/
+
+object Solution {
+    
+    def generateParenthesis(n: Int): List[String] = {
+        import scala.collection.mutable._
+        def backtrack(acc: ListBuffer[String], curr: String, left: Int, right: Int): Unit = {
+            if (left == 0 && right == 0) acc.append(curr)
+            else {
+                if (left > 0) backtrack(acc, curr + "(", left-1, right)
+                if (right > left) backtrack(acc, curr + ")", left, right-1)
+            }
+        }
+      
+        val acc = ListBuffer[String]()
+        backtrack(acc, "", n, n)
+        acc.toList
+    }
+}
